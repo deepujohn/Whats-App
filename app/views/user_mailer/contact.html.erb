@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><b><%= @user.name %></b> has sended a message to you</h1>
+    <p>
+       <b>Message: </b>      
+       <%= @user.message %>.<br>
+    </p>
+    <p>
+      <b>Email: </b>
+      <%= @user.email %>.
+    </p>
+    <p>
+       By: <%= @url %>
+    </p>        
+  </body>
+</html>
