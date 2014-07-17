@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      First Name: <%= @user.first_name%>
+    </p>
+    <p>
+      Last Name: <%= @user.last_name%>
+    </p>
+    <p>
+      City: <%= @user.city%>
+    </p>    
+    <p>
+      Country: <%= @user.country%>
+    </p>
+    <p>
+      Email: <%= @user.email%>
+    </p>
+    <p>
+      Phone: <%= @user.phone%>
+    </p>    
+    <p>
+       By: <%= @url %>
+    </p>
+    <%=link_to "download image", "http://0.0.0.0:3000/#{@user.photo_url}" %>
+    <%=link_to "download resume", "http://0.0.0.0:3000/#{@user.resume_url}" %>    
+  </body>
+</html>

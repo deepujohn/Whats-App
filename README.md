@@ -1,8 +1,9 @@
-WhatsApp Project
-First step
+##WhatsApp Project
+###First step
 
-Add dependency gems to our gem file
+###Add dependency gems to our gem file
 
+````ruby
 source 'https://rubygems.org'
 ruby '2.1.2'
 gem 'rails', '4.1.4'
@@ -36,33 +37,45 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+````
 
 Then to get them
 
+````console
 bundle
+````
 
 Install Bootstrap
 
 To generate bootstrap
 
+````console
 rails generate bootstrap:install static
+````
 
 For generating responsive layout
 
+````console
 rails g bootstrap:layout application fluid
+````
 
 Install Simple Form
 
 To install simple form with bootstrap
 
+````console
 rails generate simple_form:install --bootstrap
+````
 
 To generate mailer
 
+````console
 rails g mailer UserMailer
+````
 
 Edit user_mailer as
 
+````ruby
 class UserMailer < ActionMailer::Base
   default from: "your email"
   def contact(user)
@@ -72,21 +85,27 @@ class UserMailer < ActionMailer::Base
     mail(to: @to,subject: 'A Message From WhatsApp Contact')
   end
 end
+````
 
 Add Scaffold
 
 For our conveniance, we use scaffold.
 
+````console
 rails g scaffold Contact name email message:text
+````
 
 then run migration file to create table
 
+````console
 rake db:migrate
+````
 
 To configure Our Mailer
 
 Add to Environment/development.rb
 
+  ````ruby
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }   
 
@@ -102,6 +121,7 @@ Add to Environment/development.rb
 
   :authentication => 'plain',
   :enable_starttls_auto => true }
+  ````
 
 Remove unneccessary files from contacts
 
@@ -112,6 +132,7 @@ We need to simply call the mailer function from our controller when our new cont
 
 Redefine our ContactsController
 
+````ruby
 def create
     @contact = Contact.new(contact_params)
 
@@ -126,9 +147,10 @@ def create
       end
     end
   end
+  ````
 
-Rest is all yours. Remove all unnecessary links and as give good value for button nice heading and so on. All the best
-Adding Contact Us link in the navigation bar
+*Rest is all yours. Remove all unnecessary links and as give good value for button nice heading and so on. All the best
+Adding Contact Us link in the navigation bar*
 
 This can be more simpler if you know bootstrap and layout. In views/layout/application.html.erb file
 
@@ -153,3 +175,23 @@ First find the div with class navbar and then simply change link_to with hyperli
         </div>
       </div>
     </div>
+
+
+## To generate uploader
+
+````console
+rails generate uploader Photo
+rails generate uploader Resume
+````
+## To generate career controller
+
+````console
+rails g controller Careers new create 
+````
+## To generate model and table for career
+
+````console
+rails g model Career first_name last_name city country email phone resume photo
+
+rake db:migrate
+````

@@ -23,7 +23,7 @@ Rails.application.configure do
    config.action_mailer.smtp_settings = {
   :address => "smtp.gmail.com",
   :port => 587,
-  :domain => "localhost:3000",
+  :domain => "localhost:3000", 
   :user_name => "radiowordtoworld@gmail.com",
   :password => "wordtoworldradio",
 
