@@ -1,0 +1,13 @@
+= simple_form_for(@career) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :city
+    = f.input :country
+    = f.input :email
+    = f.input :phone
+    = f.input :resume
+    = f.input :photo
+  .form-actions
+    = f.button :submit,{value: 'SEND',:class=>"btn btn-success"}

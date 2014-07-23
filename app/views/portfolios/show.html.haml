@@ -1,0 +1,20 @@
+%p#notice= notice
+%br/
+%br/
+%p
+  %h2= @portfolio.title
+%br/
+%p
+  = image_tag @portfolio.image
+%br/
+%br/
+%p
+  %strong Description:
+  = @portfolio.description
+%br/
+%br/
+= link_to 'Edit', edit_portfolio_path(@portfolio)
+|
+\#{link_to 'Destroy', @portfolio, method: :delete, data: { confirm: 'Are you sure?' }} 
+|
+\#{link_to 'Back', portfolios_path}

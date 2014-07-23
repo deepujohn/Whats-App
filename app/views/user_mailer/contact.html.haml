@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      %b= @user.name
+      has sended a message to you
+    %p
+      %b Message:
+      = @user.message
+      \.
+      %br/
+    %p
+      %b Email:
+      = @user.email
+      \.
+    %p
+      By: #{@url}

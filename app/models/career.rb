@@ -1,7 +1,7 @@
 class Career < ActiveRecord::Base
 	mount_uploader :photo,PhotoUploader
 	mount_uploader :resume,ResumeUploader
-	validates :first_name,:last_name,:city,:email,:phone,:resume,:photo,presence:true
+	validates :first_name,:last_name,:city,:email,:phone,:resume,:photo,:country,presence:true
 	validates :first_name,format: {with: /\A[a-zA-Z]+\z/,message: 'Only letters'}
 	validates :last_name,format: {with: /\A[a-zA-Z]+\z/,message: 'Only letters'}
 	validates :city,format: {with: /\A[a-zA-Z ]+\z/,message: 'Only letters'}

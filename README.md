@@ -195,3 +195,84 @@ rails g model Career first_name last_name city country email phone resume photo
 
 rake db:migrate
 ````
+##Using Devise Gem
+
+Add gem to gemfile
+
+````ruby
+gem 'devise'
+````
+Next run generator
+
+````console
+rails generate devise:install
+````
+Next we can add devise to any of the models
+
+````console
+rails g devise User
+````
+Next goto migration file get at last file and uncomment all lines  with single hash symbol.
+
+````console 
+rake db:migrate
+````
+Now generate views
+
+````console
+rails g devise:views users
+````
+Add in user model
+
+````ruby
+:confirmable, :lockable, :timeoutable
+````
+Then add in routes
+
+````ruby
+devise_for :users, :path => '', :path_names => {:sign_up => 'signup', :sign_in => 'signin', :sign_out => 'signout'}  
+````
+
+##Portfolio
+
+````console
+rails g scaffold portfolio title description image user:references
+````
+Now generate uploader
+
+````console
+ rails g uploader Image
+````
+Now mount uploader and add validations to the portofolio
+
+````ruby
+class Portfolio < ActiveRecord::Base
+  belongs_to :user
+  mount_uploader :image, ImageUploader
+  validates :title,:description,:image,presence:true
+end
+````
+Add this to _form
+
+````html.erb
+<%= f.hidden_field :user_id,value: current_user.id%>
+````
+## Convert to HAML
+
+add gems
+
+````ruby
+gem 'erb2haml'
+gem 'haml-rails'
+````
+To replace existing
+
+````console
+rake haml:replace_erbs
+````
+ 
+
+
+
+
+

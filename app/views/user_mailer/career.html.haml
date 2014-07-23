@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %p
+      First Name: #{@user.first_name}
+    %p
+      Last Name: #{@user.last_name}
+    %p
+      City: #{@user.city}
+    %p
+      Country: #{@user.country}
+    %p
+      Email: #{@user.email}
+    %p
+      Phone: #{@user.phone}
+    %p
+      By: #{@url}
+    = link_to "download image", "http://0.0.0.0:3000/#{@user.photo_url}"
+    = link_to "download resume", "http://0.0.0.0:3000/#{@user.resume_url}"

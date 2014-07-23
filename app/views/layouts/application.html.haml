@@ -1,0 +1,26 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=Edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : "WhatsApp"
+    = csrf_meta_tags
+    = render 'layouts/shim'
+    = stylesheet_link_tag "application", :media => "all"
+    = render 'layouts/devices'
+    = javascript_include_tag "application"
+  %body
+    %header
+      = render 'layouts/navbar'
+    .container-fluid
+      .row-fluid
+        .span1
+        %div
+          = bootstrap_flash
+          = yield
+        .span1
+      / /row
+      %footer
+        = render 'layouts/footer'
+    / /container

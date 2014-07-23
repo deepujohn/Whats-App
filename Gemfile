@@ -19,6 +19,8 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'carrierwave'
 gem 'devise'
+gem 'erb2haml'
+gem 'haml-rails'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'

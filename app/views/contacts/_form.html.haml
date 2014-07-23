@@ -1,0 +1,8 @@
+= simple_form_for(@contact) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :name
+    = f.input :email
+    = f.input :message
+  .form-actions
+    = f.button :submit,{value: 'SEND',:class=>"btn btn-success"}
