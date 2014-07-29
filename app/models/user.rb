@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :lockable, :timeoutable
-   has_many :portfolio
+         :confirmable, :lockable, :timeoutable,:secure_validatable
+   has_many :portfolio     
+   apply_simple_captcha 
+
 end

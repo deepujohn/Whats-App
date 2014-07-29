@@ -5,6 +5,8 @@
     = f.input :email, required: true, autofocus: true
     = f.input :password, required: true
     = f.input :password_confirmation, required: true
+    = captcha_tag 
+    = text_field_tag :captcha 
   .form-actions
     = f.button :submit,{value: "Sign up",:class=>"btn btn-success"}
 = render "devise/shared/links"

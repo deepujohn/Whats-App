@@ -1,32 +1,33 @@
 .navbar.navbar-fluid-top
-  .navbar-inner
-    .container-fluid
+  .navbar-inner    
+    .container-fluid          
       %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
         %span.icon-bar
         %span.icon-bar
-        %span.icon-bar
+        %span.icon-bar             
       - unless user_signed_in?
-        = link_to "WhatsApp" , welcome_path , :class=> "brand"
+        = link_to image_tag("index.jpeg",size:"50x100") , root_path , :class=> "brand"
       - else
-        = link_to "WhatsApp" , home_path , :class=> "brand"
-      .container-fluid.nav-collapse
-        %ul.nav
+        = link_to image_tag("index.jpeg",size:"50x100"), home_path , :class=> "brand"
+      .container-fluid.nav-collapse              
+        %ul.nav                    
           - unless user_signed_in?
             %li= link_to "Careers", new_career_path
             %li= link_to "Contact Us", new_contact_path
             %li= link_to "Portfolio", portfolios_path
           - else
             %li= link_to "Portfolio", portfolios_path
-          %li.span6
+          %li.span6                                    
           - unless user_signed_in?
-            %li= link_to "Sign In",new_user_session_path
+            %li= link_to "Sign In",new_user_session_path            
           - else
-            %li.dropdown
-              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            %li.dropdown            
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}                   
                 = current_user.email
-                %b.caret
+                %b.caret                
               %ul.dropdown-menu{:role => "menu"}
                 %li.divider --------------------------------------------
-                %li= link_to "Sign Out",destroy_user_session_path
+                %li  
+                  = link_to "Sign Out",destroy_user_session_path
                 %li.divider --------------------------------------------
       / /.nav-collapse

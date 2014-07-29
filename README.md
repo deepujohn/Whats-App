@@ -156,6 +156,7 @@ This can be more simpler if you know bootstrap and layout. In views/layout/appli
 
 First find the div with class navbar and then simply change link_to with hyperlink and path
 
+````html.erb
    <div class="navbar navbar-fluid-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -175,6 +176,7 @@ First find the div with class navbar and then simply change link_to with hyperli
         </div>
       </div>
     </div>
+````    
 
 
 ## To generate uploader
@@ -270,9 +272,71 @@ To replace existing
 ````console
 rake haml:replace_erbs
 ````
- 
+## Add confirmations controller
 
+````console
+rails g controller Confirmations
+````
+Then add this to confirmations controller
 
+````ruby
+protected
+     def after_confirmation_path_for(resource_name, resource)
+      if signed_in?(resource_name)
+        home_path
+      else
+        new_session_path(resource_name)
+      end
+    end
+````
+## Adding Captcha
 
+Add this gem to Gemfile
 
+````ruby
+gem 'devise_security_extension'
 
+````
+Now install it using 
+````console
+bundle
+````
+Now generate simple captcha using the command
+
+````console
+rails generate devise_security_extension:install
+````
+Now add to config/initializers/devise.rb
+
+````ruby
+  # captcha integration for recover form
+   config.captcha_for_recover = true
+
+  # captcha integration for sign up form
+   config.captcha_for_sign_up = true
+
+  # captcha integration for sign in form
+   config.captcha_for_sign_in = true
+````
+Now add to gem file
+
+````ruby
+gem 'easy_captcha'
+````
+Now run initializer
+
+````console
+rails generate easy_captcha:install
+````
+
+For validations add this to user model
+````ruby
+devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable,
+         :confirmable, :lockable, :timeoutable,:secure_validatable
+````
+Now to add captcha to our view use this lines
+````haml
+= captcha_tag 
+= text_field_tag :captcha 
+````

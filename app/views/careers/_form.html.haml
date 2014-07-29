@@ -7,7 +7,7 @@
     = f.input :country
     = f.input :email
     = f.input :phone
-    = f.input :resume
-    = f.input :photo
+    = f.input :resume,:label=>"Upload Resume"
+    = f.input :photo,:label=>"Upload Photo"
   .form-actions
     = f.button :submit,{value: 'SEND',:class=>"btn btn-success"}

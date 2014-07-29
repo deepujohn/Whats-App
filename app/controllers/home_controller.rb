@@ -1,8 +1,9 @@
 class HomeController < ApplicationController
   def index
-  	unless user_signed_in?
-  		redirect_to welcome_path
+=begin  	unless user_signed_in?
+  		redirect_to root_path
   	end
+=end  	
   end
   def welcome
   end

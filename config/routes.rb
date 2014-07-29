@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to:"home#index"
+  captcha_route
+  root to:"welcome#index"
   resources :portfolios  
   get '/home' , to: 'home#index', as: 'home'  
   get '/welcome',to: 'welcome#index',as: 'welcome'
