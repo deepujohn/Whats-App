@@ -1,9 +1,6 @@
 class HomeController < ApplicationController
   def index
-=begin  	unless user_signed_in?
-  		redirect_to root_path
-  	end
-=end  	
+  	@portfolios = Portfolio.all
   end
   def welcome
   end

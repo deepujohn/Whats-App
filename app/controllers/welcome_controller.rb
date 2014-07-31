@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
-	def index		
+	def index	
+		@portfolios = Portfolio.all
 	end
 	def about
 	end

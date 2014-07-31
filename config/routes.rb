@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'reports/index'
+
   captcha_route
   root to:"welcome#index"
   resources :portfolios  

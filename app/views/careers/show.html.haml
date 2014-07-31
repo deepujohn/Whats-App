@@ -1,0 +1,16 @@
+%p
+  =@career.first_name
+%p
+  =@career.last_name
+%p
+  =@career.city
+%p
+  =@career.country
+%p
+  =@career.email
+%p
+  =@career.phone
+= link_to "Download Image", "http://0.0.0.0:3000/#{@career.photo_url}"
+= link_to "Download Resume", "http://0.0.0.0:3000/#{@career.resume_url}"
+%p
+  =link_to "Back",careers_path

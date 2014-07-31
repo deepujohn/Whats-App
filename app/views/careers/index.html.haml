@@ -1,0 +1,24 @@
+.row
+  .span3
+    %b Email
+  .span1  
+    %b Phone
+  .span2  
+    %b Photo
+  .span1  
+    %b Resume   
+  .span5
+    %b Action  
+-@careers.each do |user|  
+  .row
+    .span3
+      =user.email  
+    .span1
+      =user.phone
+    .span2
+      = link_to "Download Image", "http://0.0.0.0:3000/#{user.photo_url}"
+    .span1
+      = link_to "Download Resume", "http://0.0.0.0:3000/#{user.resume_url}"
+    .span1
+      =link_to "Show",user
+

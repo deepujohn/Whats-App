@@ -1,4 +1,9 @@
 class CareersController < ApplicationController
+  before_action :set_career, only: [:show]
+  before_action :authenticate_user!, only: [:show]
+  def index
+    @careers=Career.all
+  end
   def new
   	@career=Career.new
   end
@@ -15,12 +20,14 @@ class CareersController < ApplicationController
       end
     end
   end
+  def show    
+  end
 
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_career
-      @career = career.find(params[:id])
+      @career = Career.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

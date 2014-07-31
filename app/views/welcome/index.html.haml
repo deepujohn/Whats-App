@@ -1,3 +1,8 @@
-%h2 Welcome to WhatsApp
-.well
-  WhatsApp
+-if user_signed_in?
+  %h1 Home
+  %b Welcome. You can manage your Portfolios.  
+-else  
+  %h2 Welcome to WhatsApp
+  .well
+    Whats Up?
+= render 'shared/carousel'
