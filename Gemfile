@@ -27,6 +27,13 @@ gem 'simple_captcha2', require: 'simple_captcha'
 gem 'devise_security_extension'
 gem 'rails_email_validator'
 gem 'easy_captcha'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+gem 'prawn'
+gem 'prawn-rails'
+gem 'prawn_rails'
+gem 'pdfkit'
+gem "wkhtmltopdf"
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
@@ -38,4 +45,7 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+end
+group :assets do
+  gem 'less'
 end

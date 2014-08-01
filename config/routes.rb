@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'reports/index'
 
   captcha_route
   root to:"welcome#index"
@@ -10,6 +9,11 @@ Rails.application.routes.draw do
   devise_for :users, :path => '', :path_names => {:sign_up => 'signup', :sign_in => 'signin', :sign_out => 'signout'}    
   resources :contacts
   resources :careers
+  get 'reports/index'  
+  get 'reports/show'  
+
+  
+
   #root 'careers#new'  
   
   # The priority is based upon order of creation: first created -> highest priority.

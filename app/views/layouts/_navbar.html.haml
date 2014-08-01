@@ -16,8 +16,7 @@
             %li= link_to "Careers", new_career_path
             %li= link_to "Contact Us", new_contact_path
           - else
-            %li= link_to "Portfolio", portfolios_path
-            %li= link_to "Reports", reports_index_path
+            %li= link_to "Portfolio", portfolios_path            
           %li.span6                                    
           - unless user_signed_in?
             %li= link_to "Sign In",new_user_session_path            
@@ -29,6 +28,8 @@
               %ul.dropdown-menu{:role => "menu"}
                 %li.divider --------------------------------------------
                 %li  
-                  = link_to "Sign Out",destroy_user_session_path
+                  = link_to "Edit Profile",edit_user_registration_path
+                %li  
+                  = link_to "Sign Out",destroy_user_session_path  
                 %li.divider --------------------------------------------
       / /.nav-collapse

@@ -1,5 +1,16 @@
-=link_to "Download as PDF",reports_show_path
+= render 'layouts/shim'
+= stylesheet_link_tag "application", :media => "all"
+= render 'layouts/devices'
+= javascript_include_tag "application"    
+%h2{:align=>"center"} Report 
+.span7
+%b{:align=>"center"}
+  Date :
+  =Time.now.strftime("%d - %m - %Y")
+%br  
+%br
 .row
+  .span2
   .span3
     %b Email
   .span1  
@@ -8,10 +19,11 @@
     %b Photo
   .span1  
     %b Resume   
-  .span5
+  .span3
     %b Action  
--@careers.each do |user|  
+-@careers.each do |user|    
   .row
+    .span2 
     .span3
       =user.email  
     .span1
@@ -20,6 +32,6 @@
       = link_to "Download Image", "http://0.0.0.0:3000/#{user.photo_url}"
     .span1
       = link_to "Download Resume", "http://0.0.0.0:3000/#{user.resume_url}"
-    .span1
+    .span3
       =link_to "Show",user
 
