@@ -9,4 +9,7 @@ class Career < ActiveRecord::Base
 	validates :phone,format: {with: /[0-9]{10,13}/,message: 'Enter your phone number'}
 	validates_format_of :photo, :with => %r{\.(png|jpg|jpeg)}i, message:  "Only jpeg,jpg,png allowed"
 	validates_format_of :resume, :with => %r{\.(doc|docx|pdf)}i, message: "Only .doc , .docx , .pdf allowed"
+	validates :first_name,length:{in: 3..15}
+	validates :last_name,length:{in: 3..15}
+	validates :city,length:{minimum: 3,message: "Not a city"}
 end

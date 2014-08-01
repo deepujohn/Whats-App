@@ -1,10 +1,10 @@
 .span12
   = link_to 'New Portfolio', new_portfolio_path
-%h1 Listing portfolios
+%h1 Listing Portfolios
 - @portfolios.each do |portfolio|
   .span2
     %div
-      = link_to image_tag(portfolio.image,:border=>0,:width=>'100%'),portfolio
+      = link_to image_tag(portfolio.image,:border=>0,:width=>'100%',:class=>"thumbnail"),portfolio
     .caption.span6
       = portfolio.title
 %br/

@@ -1,0 +1,22 @@
+%p#notice= notice
+%br/
+%br/
+%p
+  %h2= @slider.title
+%br/  
+%p  
+  = image_tag @slider.image
+%br/
+%br/  
+%p
+  %b Description:
+  = @slider.description
+%br/
+%br/  
+-if user_signed_in?
+  -if current_user.id==@slider.user_id
+    = link_to 'Edit', edit_slider_path(@slider)
+    |
+    \#{link_to 'Destroy', @portfolio, method: :delete, data: { confirm: 'Are you sure?' }} 
+    |
+= link_to 'Back', sliders_path

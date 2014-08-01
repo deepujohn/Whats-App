@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725132600) do
+ActiveRecord::Schema.define(version: 20140801093517) do
 
   create_table "careers", force: true do |t|
     t.string   "first_name"
@@ -53,6 +53,17 @@ ActiveRecord::Schema.define(version: 20140725132600) do
   end
 
   add_index "simple_captcha_data", ["key"], name: "idx_key"
+
+  create_table "sliders", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "image"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sliders", ["user_id"], name: "index_sliders_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

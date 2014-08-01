@@ -1,0 +1,13 @@
+.span12
+  = link_to 'New Slider', new_slider_path
+%h1 Listing sliders
+- @sliders.each do |slider|
+  .span2
+    %div
+      =link_to image_tag(slider.image,:border=>0,:width=>'100%',:class=>"thumbnail"),slider
+    .caption.span6
+      = slider.title
+
+%br
+
+

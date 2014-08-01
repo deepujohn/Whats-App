@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :sliders
+
   captcha_route
   root to:"welcome#index"
   resources :portfolios  

@@ -10,12 +10,13 @@
 %br/
 %p
   %strong Description:
-  = @portfolio.description
+  = @portfolio.description  
 %br/
 %br/
--if user_signed_in?
-  = link_to 'Edit', edit_portfolio_path(@portfolio)
-  |
-  \#{link_to 'Destroy', @portfolio, method: :delete, data: { confirm: 'Are you sure?' }} 
-  |
+-if user_signed_in?  
+  -if current_user.id==@portfolio.user_id
+    = link_to 'Edit', edit_portfolio_path(@portfolio)  
+    |
+    \#{link_to 'Destroy', @portfolio, method: :delete, data: { confirm: 'Are you sure?' }} 
+    |
 \#{link_to 'Back', portfolios_path}

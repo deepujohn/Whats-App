@@ -17,6 +17,7 @@
             %li= link_to "Contact Us", new_contact_path
           - else
             %li= link_to "Portfolio", portfolios_path            
+            %li= link_to "Slider", sliders_path  
           %li.span6                                    
           - unless user_signed_in?
             %li= link_to "Sign In",new_user_session_path            
