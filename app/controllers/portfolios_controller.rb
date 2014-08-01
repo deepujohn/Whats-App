@@ -4,8 +4,12 @@ class PortfoliosController < ApplicationController
 
   # GET /portfolios
   # GET /portfolios.json
-  def index        
-      @portfolios = Portfolio.all     
+  def index              
+      if user_signed_in?
+        @portfolios=Portfolio.where("user_id=?",current_user.id)    
+      else
+        @portfolios = Portfolio.all   
+      end  
   end
 
   # GET /portfolios/1
